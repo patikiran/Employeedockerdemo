@@ -1,9 +1,7 @@
-FROM openjdk:17-jdk-alpine
+FROM jenkins/jenkins:its-jdk17
 
-EXPOSE 8080
+USER root
 
-COPY ./target/springdemoproject-0.0.1-SNAPSHOT.jar springdemoproject.jar
+RUN curl -sSL https://get.docker.com/ | sh
 
-ENTRYPOINT ["java" ,"-jar","/springdemoproject.jar"]
-
-
+USER jenkins
